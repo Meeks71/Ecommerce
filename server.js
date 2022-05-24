@@ -32,10 +32,18 @@ app.get('/', (req, res) => {
 })
 
 app.get('/products',(req, res) =>{
-        console.log('products')
-        res.render('products', {data: productData, pageTitle: 'Product Page'})
+         res.render('products', {data: productData, pageTitle: 'Product Page'})
 })
 
+app.get('/products/new',(req, res) =>{
+    res.render('new-product')
+})
+
+
+app.get('products/:id',(req, res) =>{
+    console.log(req.params)
+    res.send(productData[req.params.id])
+})
 
 //app.get('', (req,res) => {
  //   console.log('')
